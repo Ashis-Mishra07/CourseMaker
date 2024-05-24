@@ -6,13 +6,13 @@ import { useEffect } from "react";
 export default function Home() {
   const router=useRouter();
   const { user ,isLoaded} = useUser();
-  useEffect(()=>{
+  useEffect(() => {
     if (user) {
       router.push("/dashboard");
     } else {
-      isLoaded&&router.push("/courses");
+      isLoaded && router.push("/courses");
     }
-  },[])
+  }, [user, isLoaded]);
   return (
     <div>
       <UserButton afterSignOutUrl="/sign-in" />
